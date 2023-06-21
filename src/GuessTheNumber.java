@@ -7,6 +7,7 @@ public class GuessTheNumber {
         int secretNumber;
         int guess;
         boolean correctGuess = false;
+        int attempts = 0;
 
         // generate random number between 1 and 20
         Scanner input = new Scanner(System.in);
@@ -15,6 +16,8 @@ public class GuessTheNumber {
 
         // prompt user to guess the number
         while (correctGuess == false) {
+
+            attempts++;
 
             System.out.print("Enter a number: ");
             guess = input.nextInt();
@@ -28,7 +31,11 @@ public class GuessTheNumber {
             } else if (guess < secretNumber) {
                 System.out.println("Your guess is too low.");
             }
+           
         }
+
+        // display how many attempts the user has made
+        System.out.println("It took you " + attempts + " attempts to guess the number.");
 
         input.close();
     }    
